@@ -107,11 +107,11 @@
                 html: strMessage,
                 icon: "error"
             })
+        }else{
+            $('#frmAdminLogin').slideUp('slow')
+            $('#frmInstructorDash').slideDown('fast')        
         }
-
-        $('#frmAdminLogin').slideUp('slow')
-        $('#frmInstructorDash').slideDown('fast')        
-    })
+})
 
     //register swap
     $('#btnStudentSwapLogin').on('click',function(){
@@ -164,3 +164,7 @@
     })
 
     //instructor dashboard buttons...
+    $('#btnViewClasses').on('click',function(){
+        $('#frmInstructorDash').slideUp('slow')
+        $('#frmInstructorClasses').slideDown('fast')
+    })

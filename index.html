@@ -81,8 +81,7 @@
                 <input class="form-control mt-2" type="Discord" id="txtDiscord" placeholder="discord username" aria-label="discord">
                 <input class="form-control mt-2" type="Teams" id="txtTeams" placeholder="Teams " aria-label="Teams contact">
                 <button class="btn btn-primary col-12 mt-4" type="button" id="registerStudentbtn" aria-label="Register button">Register</button>
-                <button class="btn btn-link col-12 mt-0" type="button" id="btnStudentReturn">Go back</button>
-                
+                <button class="btn btn-link col-12 mt-0" type="button" id="btnStudentReturn">Go back</button>            
             </div>
         </form>
 
@@ -92,7 +91,7 @@
                 <h5 class="text-center">Enter your information Below:</h5>
                 
                 <h6 class="text-left mt-4">Account Details:</h6>
-                <input class="form-control mt-2" type="Employee ID" id="txtAdminID" placeholder="T43289422" aria-label="Employee ID">
+                <input class="form-control mt-2" type="Employee ID" id="txtAdminID" placeholder="Employee ID" aria-label="Employee ID">
                 <input class="form-control mt-2" type="Firstname" id="txtAdminFirstName" placeholder="first name" aria-label="first name">
                 <input class="form-control mt-2" type="Lastname" id="txtAdminLastName" placeholder="last name" aria-label="last name">
                 
@@ -127,20 +126,30 @@
 <!--instructor dashboard-->
         <form class="card col-24 col-md-10 col-lg-8" id="frmInstructorDash" style="display: none;">
         <div class="card-body">
-            <h1 class="text-center mb-0 text-primary">Instructor Dashboard</h2>
+            <h1 class="text-center mb-0 text-primary">Instructor Dashboard</h1>
         <div class="d-flex mt-2">
             <button class="btn btn-primary flex-fill mr-1" type="button" id="btnViewClasses">view classes</button>
-            <button class="btn btn-primary flex-fill mr-1" type="button" id="btnCreateClass">create class</button>
             <button class="btn btn-primary flex-fill mr-1" type="button" id="btnCreateForm">create form</button>
             <button class="btn btn-primary flex-fill mr-1" type="button" id="btnCreateForm">view responses</button>
         </div>
         <button class="btn btn-link col-12 mt-0" type="button" id="btnAdminLogOut">Log out</button>
+        </div>
+        </form>
 
-    </div>
-</form>
+        <form class="card col-24 col-md-10 col-lg-8" id="frmInstructorClasses" style="display: none;">
+        <div class="card-body">
+            <h1 class="text-center mb-0 text-primary">Your Classes</h1>
+            <div class="d-flex mt-2">
+                <button class="btn btn-primary flex-fill mr-1" type="button" id="btnCreateClass">add class</button>
+            </div>
+            <label class="form-control" for="classes">Select a class:</label>
 
-
-        
+            <select class="form-control"name="classes" id="classes">
+              <option value="csc3300">3300</option>
+              <option value="csc2570">csc2570</option>
+            </select>
+            <button class="btn btn-link col-12 mt-0" type="button" id="btnClassSelect">View class members</button>
+        </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
