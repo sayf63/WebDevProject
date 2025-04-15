@@ -81,6 +81,37 @@
         }
     })
 
+    //instructor login
+    document.querySelector("#btnAdminLogin").addEventListener("click",(e) => {
+        const regEmail = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+        let strUsername = document.querySelector("#txtAdminUsername").value
+        const strPassword = $('#txtAdminPassword').val()
+        strUsername = strUsername.toLowerCase()
+        let blnError = false
+        let strMessage = ''
+        let strSuccessMessage = 'The time for feedback is now!'
+
+        if(!regEmail.test(strUsername)){
+            blnError = true
+            strMessage += '<p  class="mb-0 mt-0">Username must be an email address</p>'
+        }
+        
+        if(strPassword.length < 1){
+            blnError = true
+            strMessage += '<p class="mb-0 mt-0">Password Cannot Be Blank</p>'
+        }
+        
+        if(blnError){
+            Swal.fire({
+                title: "Oh no, you have an error!",
+                html: strMessage,
+                icon: "error"
+            })
+        }
+
+        $('#frmAdminLogin').slideUp('slow')
+        $('#frmInstructorDash').slideDown('fast')        
+    })
 
     //register swap
     $('#btnStudentSwapLogin').on('click',function(){
@@ -94,13 +125,42 @@
     })
 
 
-    //home page sign in Btn
+    //home page student sign in Btn
     $('#btnStudentSignIn').on('click',function(){
         $('#frmHomePage').slideUp('slow')
         $('#frmStudentLogin').slideDown('fast')
     })
-    //login page back btn
+    //login page student back btn
     $('#btnStudentHomeBack').on('click',function(){
         $('#frmStudentLogin').slideUp('slow')
         $('#frmHomePage').slideDown('fast')
     })
+    //home page admin sign in Btn
+    $('#btnAdminSignIn').on('click',function(){
+        $('#frmHomePage').slideUp('slow')
+        $('#frmAdminLogin').slideDown('fast')
+    })
+    //login page admin back btn
+    $('#btnAdminHomeBack').on('click',function(){
+        $('#frmAdminLogin').slideUp('slow')
+        $('#frmHomePage').slideDown('fast')
+    })
+
+    //admin logout
+    $('#btnAdminLogOut').on('click',function(){
+        $('#frmInstructorDash').slideUp('slow')
+        $('#frmHomePage').slideDown('fast')
+    })
+
+    //register swap - instructor
+    $('#btnAdminRegister').on('click',function(){
+        $('#frmAdminLogin').slideUp('slow')
+        $('#frmAdminRegister').slideDown('fast')
+    })
+    //back button on registeration page - instructor
+    $('#btnAdminReturn').on('click',function(){
+        $('#frmAdminRegister').slideUp('slow')
+        $('#frmAdminLogin').slideDown('fast')
+    })
+
+    //instructor dashboard buttons...
