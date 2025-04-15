@@ -168,3 +168,30 @@
         $('#frmInstructorDash').slideUp('slow')
         $('#frmInstructorClasses').slideDown('fast')
     })
+
+        //instructor dashboard buttons...
+    $('#btnCreateForm').on('click',function(){
+        $('#frmInstructorDash').slideUp('slow')
+        $('#frmWork').slideDown('fast')
+    })
+
+    //add questions
+    let questionCount = 0;
+
+    function addQuestion() {
+        questionCount++;
+        const container = document.getElementById('questionsContainer');
+
+        const questionDiv = document.createElement('div');
+        questionDiv.classList.add('mb-3');
+
+        questionDiv.innerHTML = `
+            <label for="question${questionCount}" class="form-label">Question ${questionCount}</label>
+            <input type="text" class="form-control mb-2" id="question${questionCount}" name="question${questionCount}" placeholder="Enter your question">
+
+            <label for="answer${questionCount}" class="form-label">Answer</label>
+            <textarea class="form-control" id="answer${questionCount}" name="answer${questionCount}" rows="2" placeholder="Enter your answer"></textarea>
+        `;
+
+        container.appendChild(questionDiv);
+    }

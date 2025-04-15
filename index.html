@@ -128,28 +128,36 @@
         <div class="card-body">
             <h1 class="text-center mb-0 text-primary">Instructor Dashboard</h1>
         <div class="d-flex mt-2">
-            <button class="btn btn-primary flex-fill mr-1" type="button" id="btnViewClasses">view classes</button>
             <button class="btn btn-primary flex-fill mr-1" type="button" id="btnCreateForm">create form</button>
             <button class="btn btn-primary flex-fill mr-1" type="button" id="btnCreateForm">view responses</button>
         </div>
+        <label class="form-control" for="classes">Select a class:</label>
+
+        <select class="form-control"name="classes" id="classes">
+          <option value="csc3300">3300</option>
+          <option value="csc2570">csc2570</option>
+        </select>
         <button class="btn btn-link col-12 mt-0" type="button" id="btnAdminLogOut">Log out</button>
         </div>
         </form>
 
-        <form class="card col-24 col-md-10 col-lg-8" id="frmInstructorClasses" style="display: none;">
-        <div class="card-body">
-            <h1 class="text-center mb-0 text-primary">Your Classes</h1>
-            <div class="d-flex mt-2">
-                <button class="btn btn-primary flex-fill mr-1" type="button" id="btnCreateClass">add class</button>
-            </div>
-            <label class="form-control" for="classes">Select a class:</label>
+        <form class="card col-12 col-md-5 col-lg-4" id="frmWork" style="display: none;">
+            <div class="card-body">
+                <h2 class="text-center mb-4">Question Form</h2>
+                <!-- Dynamic Questions Section -->
+                <div id="questionsContainer" class="mt-4">
+                    <h5 class="text-left mb-3" style="font-size: 16px;">Add Questions:</h5>
+                </div>
+        
+                <button type="button" class="btn btn-secondary col-12 mb-3" onclick="addQuestion()">Add Question</button>
 
-            <select class="form-control"name="classes" id="classes">
-              <option value="csc3300">3300</option>
-              <option value="csc2570">csc2570</option>
-            </select>
-            <button class="btn btn-link col-12 mt-0" type="button" id="btnClassSelect">View class members</button>
-        </div>
+                <select class="form-control"name="classes-assign" id="classes-assign">
+                  <option value="Select a class to assign">Select a class to assign</option>
+                  <option value="csc3300">3300</option>
+                  <option value="csc2570">csc2570</option>
+                </select>
+                <button class="btn btn-primary col-12" type="button" id="Assignbtn" aria-label="Register button">Assign</button>
+            </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
