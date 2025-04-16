@@ -32,7 +32,7 @@
             icon: "success"
         })
         $('#frmStudentLogin').slideUp('slow')
-        $('#frmFeedback').slideDown('fast')
+        $('#frmStudentFeedback').slideDown('fast')
     }
 })
 //registration validation for student
@@ -135,6 +135,54 @@ $('#btnStudentHomeBack').on('click',function(){
     $('#frmStudentLogin').slideUp('slow')
     $('#frmHomePage').slideDown('fast')
 })
+// Student Page code
+//Main Menu to different page functions button control area 
+    //log out button
+    $('#btnStudentLogOut').on('click',function(){
+        $('#frmStudentFeedback').slideUp('slow')
+        $('#frmStudentLogin').slideDown('fast')
+    })
+    //main menu --> pending review page
+    $('#btnPendingReviewStudent').on('click',function(){
+        $('#frmStudentFeedback').slideUp('slow')
+        $('#frmStudentPendingReview').slideDown('fast')
+    })
+    //pending review page --> main menu
+    $('#btnPendingReviewMainMenuStudent').on('click',function(){
+        $('#frmStudentPendingReview').slideUp('slow')
+        $('#frmStudentFeedback').slideDown('fast')
+    })
+    //main menu --> review page
+    $('#btnReviewStudent').on('click',function(){
+        $('#frmStudentFeedback').slideUp('slow')
+        $('#frmStudentReview').slideDown('fast')
+    })
+    //review page --> main menu
+    $('#btnReviewMainMenuStudent').on('click',function(){
+        $('#frmStudentReview').slideUp('slow')
+        $('#frmStudentFeedback').slideDown('fast')
+    })
+    //main menu --> reports page
+    $('#btnReportStudent').on('click',function(){
+        $('#frmStudentFeedback').slideUp('slow')
+        $('#frmStudentReport').slideDown('fast')
+    })
+    //reports page --> main menu
+    $('#btnReportMainMenuStudent').on('click',function(){
+        $('#frmStudentReport').slideUp('slow')
+        $('#frmStudentFeedback').slideDown('fast')
+    })
+    //main menu --> group page
+    $('#btnGroupStudent').on('click',function(){
+        $('#frmStudentFeedback').slideUp('slow')
+        $('#frmStudentGroup').slideDown('fast')
+    })
+    //group page --> main menu
+    $('#btnGroupMainMenuStudent').on('click',function(){
+        $('#frmStudentGroup').slideUp('slow')
+        $('#frmStudentFeedback').slideDown('fast')
+    })
+// End of Student page code
 //home page admin sign in Btn
 $('#btnAdminSignIn').on('click',function(){
     $('#frmHomePage').slideUp('slow')
