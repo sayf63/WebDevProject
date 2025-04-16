@@ -165,14 +165,14 @@
 
 
     //add questions
-    let questionCount = 0;
+    let questionCount = 0
 
     function addQuestion() {
-        questionCount++;
-        const container = document.getElementById('questionsContainer');
+        questionCount++
+        const container = document.getElementById('questionsContainer')
 
-        const questionDiv = document.createElement('div');
-        questionDiv.classList.add('mb-3');
+        const questionDiv = document.createElement('div')
+        questionDiv.classList.add('mb-3')
 
         questionDiv.innerHTML = `
             <label for="question${questionCount}" class="form-label">Question ${questionCount}</label>
@@ -180,7 +180,7 @@
 
             <label for="answer${questionCount}" class="form-label">Answer</label>
             <textarea class="form-control" id="answer${questionCount}" name="answer${questionCount}" rows="2" placeholder="Enter your answer"></textarea>`
-        container.appendChild(questionDiv);
+        container.appendChild(questionDiv)
     }
 
     $('#Assignbtn').on('click', function(){
@@ -192,12 +192,11 @@
     })
 
     function filterStudents() {
-        const classSelect = document.getElementById('classFilter');
-        const studentSelect = document.getElementById('studentSelect');
-        const selectedClass = classSelect.value;
+        const classSelect = document.getElementById('classFilter')
+        const studentSelect = document.getElementById('studentSelect')
+        const selectedClass = classSelect.value
 
-        // Clear existing options
-        studentSelect.innerHTML = '';
+        studentSelect.innerHTML = ''
 
         if (selectedClass && studentData[selectedClass]) {
             studentData[selectedClass].forEach(student => {
@@ -205,7 +204,7 @@
                 option.value = student
                 option.textContent = student
                 studentSelect.appendChild(option)
-            });
+            })
         }
     }
 
@@ -213,70 +212,68 @@
     function filterStudents() {
         const classSelect = document.getElementById('classFilter')
         const studentSelect = document.getElementById('studentSelect')
-        const selectedClass = classSelect.value;
+        const selectedClass = classSelect.value
 
-        studentSelect.innerHTML = '';
+        studentSelect.innerHTML = ''
 
         if (selectedClass && studentData[selectedClass]) {
             studentData[selectedClass].forEach(student => {
-                const option = document.createElement('option');
-                option.value = student;
-                option.textContent = student;
-                studentSelect.appendChild(option);
-            });
+                const option = document.createElement('option')
+                option.value = student
+                option.textContent = student
+                studentSelect.appendChild(option)
+            })
         }
     }
 
     // Add group function (triggered by btnAddGroup)
     function addGroup() {
-        const groupName = document.getElementById('groupName').value.trim();
-        const classFilter = document.getElementById('classFilter').value;
-        const className = document.getElementById('classFilter').selectedOptions[0].text;
-        const studentSelect = document.getElementById('studentSelect');
-        const selectedStudents = Array.from(studentSelect.selectedOptions).map(opt => opt.value);
+        const groupName = document.getElementById('groupName').value.trim()
+        const classFilter = document.getElementById('classFilter').value
+        const className = document.getElementById('classFilter').selectedOptions[0].text
+        const studentSelect = document.getElementById('studentSelect')
+        const selectedStudents = Array.from(studentSelect.selectedOptions).map(opt => opt.value)
 
         if (!groupName || !classFilter || selectedStudents.length === 0) {
-            alert("Please fill in all fields and select at least one student.");
-            return;
+            alert("Please fill in all fields and select at least one student.")
+            return
         }
 
-        // Add new group to the array
+        //push new group to the array
         groups.push({
             name: groupName,
             class: className,
             students: selectedStudents
-        });
+        })
 
-        // Reset form
-        document.getElementById('frmCreateGroup').reset();
-        document.getElementById('studentSelect').innerHTML = '';
+        document.getElementById('frmCreateGroup').reset()
+        document.getElementById('studentSelect').innerHTML = ''
 
-        // Update the group view
-        renderGroups();
+        //update view page
+        renderGroups()
     }
 
-    // Render group list
+    //dynamic groups
     function renderGroups() {
-        const container = document.getElementById('groupsContainer');
-        container.innerHTML = '';
+        const container = document.getElementById('groupsContainer')
+        container.innerHTML = ''
 
         if (groups.length === 0) {
-            container.innerHTML = '<p class="text-muted">No groups have been created yet.</p>';
-            return;
+            container.innerHTML = '<p class="text-muted">No groups have been created yet.</p>'
+            return
         }
 
         groups.forEach(group => {
-            const card = document.createElement('div');
-            card.classList.add('border', 'rounded', 'p-3', 'mb-3', 'bg-light');
+            const card = document.createElement('div')
+            card.classList.add('border', 'rounded', 'p-3', 'mb-3', 'bg-light')
 
-            card.innerHTML = `
-                <h5 class="mb-1">${group.name}</h5>
+            card.innerHTML = 
+               `<h5 class="mb-1">${group.name}</h5>
                 <p class="mb-2"><strong>Class:</strong> ${group.class}</p>
-                <p><strong>Members:</strong><br>${group.students.join('<br>')}</p>
-            `;
+                <p><strong>Members:</strong><br>${group.students.join('<br>')}</p>`
 
-            container.appendChild(card);
-        });
+            container.appendChild(card)
+        })
     }
 
     $('#btnAddGroup').on('click',function(){
@@ -304,8 +301,8 @@
           ]
         }).then(({value}) => {
           if (value) document.querySelector("#class-table tbody").insertAdjacentHTML('beforeend', 
-            `<tr><td>${value[0]}</td><td>${value[1]}</td><td>${value[2]}</td></tr>`);
-        });
+            `<tr><td>${value[0]}</td><td>${value[1]}</td><td>${value[2]}</td></tr>`)
+        })
       })
 
     //nav bar buttons (this sections is very long)
@@ -338,7 +335,7 @@ $('#btnStudentGroups0').click(() => {
   })
   $('#btnSendAssignment1').click(() => {
     $('#frmWork').slideUp('slow')
-    $('#frmWork').slideDown('fast') // Already here
+    $('#frmWork').slideDown('fast')
   })
   $('#btnViewSubmissions1').click(() => {
     $('#frmWork').slideUp('slow')
@@ -378,7 +375,7 @@ $('#btnStudentGroups0').click(() => {
   })
   $('#btnStudentGroups3').click(() => {
     $('#frmViewGroups').slideUp('slow')
-    $('#frmViewGroups').slideDown('fast') // Already here
+    $('#frmViewGroups').slideDown('fast')
   })
   $('#btnSendAssignment3').click(() => {
     $('#frmViewGroups').slideUp('slow')
@@ -400,7 +397,7 @@ $('#btnStudentGroups0').click(() => {
   })
   $('#btnStudentGroups4').click(() => {
     $('#frmViewSubmissions').slideUp('slow')
-    $('#frmViewGroups').slideDown('fast') // Already here
+    $('#frmViewGroups').slideDown('fast')
   })
   $('#btnSendAssignment4').click(() => {
     $('#frmViewSubmissions').slideUp('slow')
